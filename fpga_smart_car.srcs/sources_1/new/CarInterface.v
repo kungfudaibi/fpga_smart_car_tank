@@ -54,7 +54,7 @@ module TestCar(
         // end
         case(SPEED)
             2'b00: motor1_speed = 0;
-            2'b01: motor1_speed = 50;
+            2'b01: motor1_speed = 40;
             2'b10: motor1_speed = 80;
             2'b11: motor1_speed = 128;
         endcase

@@ -80,7 +80,7 @@ module numtodisp#(parameter timetodelay = 50000000)(
         end else if (temp == timetodelay)begin
             temp <= 0;
             numtodisplay <= number;
-            if(number <= 10 && number >= 8)begin
+            if(number <= 15 && number >= 6)begin
                 sig <= 1;                                       
             end else begin
                 sig <= 0;
