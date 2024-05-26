@@ -20,8 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // 顶层模块
-module TestCar(input CLK100MHZ,
-    input [15:0] SW,
+module TestCar(
+    input CLK100MHZ,
+    input  SW,
     input ROTATE,
     input [1:0] DIRECTION,
     input [1:0] SPEED,
@@ -34,7 +35,7 @@ module TestCar(input CLK100MHZ,
     wire [1:0] direction;
     reg [15:0] motor1_speed;
     
-    assign master_switch = SW[15];
+    assign master_switch = SW;
     assign rotate = ROTATE;
     assign reset = 1'b0;
     assign direction = DIRECTION[1:0];
@@ -53,8 +54,8 @@ module TestCar(input CLK100MHZ,
         // end
         case(SPEED)
             2'b00: motor1_speed = 0;
-            2'b01: motor1_speed = 32;
-            2'b10: motor1_speed = 64;
+            2'b01: motor1_speed = 50;
+            2'b10: motor1_speed = 80;
             2'b11: motor1_speed = 128;
         endcase
     end

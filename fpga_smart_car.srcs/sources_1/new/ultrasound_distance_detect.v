@@ -18,11 +18,12 @@
 // Additional Comments:
 module ultrasound_distance_detect(
     input clk_100Mhz,rst_n,
-    input PWM,
-    input encontrol,
+    input PWM,//接收到的PWM信号
+    input encontrol,//传递给超声波距离检测的控制信号
     output wire [7:0] an,
     output wire [6:0] sseg,
-    output reg pin
+    output reg pin,//传递给串口的控制信号
+    output  attack_signal 
     );
     always@(encontrol)
     begin
@@ -38,7 +39,8 @@ module ultrasound_distance_detect(
         .clk(clk_100Mhz),
         .rst_n(rst_n),
         .number(distance),
-        .numtodisplay(numtodisp)
+        .numtodisplay(numtodisp),
+        .sig(attack_signal)
     );
     chaosheng chaosheng_inst(
         .clk_100Mhz(clk_100Mhz),
@@ -67,15 +69,22 @@ module numtodisp#(parameter timetodelay = 50000000)(
     input clk,
     input rst_n,
     input [7:0]number,
-    output reg [7:0]numtodisplay
+    output reg [7:0]numtodisplay,
+    output reg sig
     );
     reg [32:0]temp = 0; 
     always @(posedge clk, negedge rst_n)begin
-        if (!rst_n)
+        if (!rst_n)begin
             temp <= 0;
-        else if (temp == timetodelay)begin
+            sig <= 0;
+        end else if (temp == timetodelay)begin
             temp <= 0;
             numtodisplay <= number;
+            if(number <= 10 && number >= 8)begin
+                sig <= 1;                                       
+            end else begin
+                sig <= 0;
+            end
         end else
             temp <= temp + 1;
     end
