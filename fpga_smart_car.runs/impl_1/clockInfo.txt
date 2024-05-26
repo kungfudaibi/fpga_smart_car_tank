@@ -1,7 +1,7 @@
 -------------------------------------
 | Tool Version : Vivado v.2023.2
-| Date         : Sun May 26 21:48:26 2024
-| Host         : 竹节虫
+| Date         : Mon May 27 00:11:05 2024
+| Host         : xu-Legion-Y9000P-Ubuntu
 | Design       : design_1
 | Device       : xc7a100t-csg324-1--
 -------------------------------------

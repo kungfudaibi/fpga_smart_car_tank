@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Sun May 26 21:53:02 2024
-| Host             : 竹节虫 running 64-bit major release  (build 9200)
+| Tool Version     : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date             : Mon May 27 00:12:30 2024
+| Host             : xu-Legion-Y9000P-Ubuntu running 64-bit Ubuntu 24.04 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
 | Device           : xc7a100tcsg324-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.260        |
+| Total On-Chip Power (W)  | 0.269        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.160        |
+| Dynamic (W)              | 0.169        |
 | Device Static (W)        | 0.100        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 83.8         |
@@ -52,21 +52,21 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.006 |        7 |       --- |             --- |
-| Slice Logic    |     0.005 |     2872 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1052 |     63400 |            1.66 |
-|   CARRY4       |    <0.001 |      172 |     15850 |            1.09 |
-|   Register     |    <0.001 |     1078 |    126800 |            0.85 |
+| Clocks         |     0.007 |        7 |       --- |             --- |
+| Slice Logic    |     0.006 |     3039 |       --- |             --- |
+|   LUT as Logic |     0.006 |     1097 |     63400 |            1.73 |
+|   CARRY4       |    <0.001 |      182 |     15850 |            1.15 |
+|   Register     |    <0.001 |     1157 |    126800 |            0.91 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
 |   F7/F8 Muxes  |    <0.001 |      109 |     63400 |            0.17 |
-|   Others       |     0.000 |      186 |       --- |             --- |
-| Signals        |     0.005 |     2544 |       --- |             --- |
+|   Others       |     0.000 |      198 |       --- |             --- |
+| Signals        |     0.007 |     2678 |       --- |             --- |
 | Block RAM      |     0.002 |       52 |       135 |           38.52 |
 | MMCM           |     0.126 |        1 |         6 |           16.67 |
-| DSPs           |    <0.001 |        2 |       240 |            0.83 |
-| I/O            |     0.016 |       63 |       210 |           30.00 |
+| DSPs           |     0.001 |        4 |       240 |            1.67 |
+| I/O            |     0.020 |       67 |       210 |           31.90 |
 | Static Power   |     0.100 |          |           |                 |
-| Total          |     0.260 |          |           |                 |
+| Total          |     0.269 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,9 +76,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.036 |       0.019 |      0.017 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.088 |       0.070 |      0.018 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.040 |       0.024 |      0.017 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.089 |       0.070 |      0.018 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -149,15 +149,19 @@ Table of Contents
 +-----------------------------------+-----------+
 | Name                              | Power (W) |
 +-----------------------------------+-----------+
-| top                               |     0.160 |
+| top                               |     0.169 |
 |   cemera_inst                     |     0.134 |
 |     bram                          |     0.004 |
 |       U0                          |     0.004 |
 |     clk                           |     0.127 |
 |       inst                        |     0.127 |
 |     vga                           |     0.002 |
-|   ultrasound_distance_detect_inst |     0.010 |
-|     chaosheng_inst                |     0.008 |
+|   remote_control_part             |     0.002 |
+|     car_control                   |     0.002 |
+|       Control_motor1              |     0.001 |
+|       Control_motor3              |     0.001 |
+|   ultrasound_distance_detect_inst |     0.012 |
+|     chaosheng_inst                |     0.010 |
 +-----------------------------------+-----------+
 
 

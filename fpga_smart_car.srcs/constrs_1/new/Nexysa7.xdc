@@ -98,6 +98,7 @@ set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { SW }];
 
 
 
+
 ##CPU Reset Button
 #set_property -dict { PACKAGE_PIN C12   IOSTANDARD LVCMOS33 } [get_ports { CPU_RESETN }]; #IO_L3P_T0_DQS_AD1P_15 Sch=cpu_resetn
 
@@ -130,6 +131,8 @@ set_property -dict { PACKAGE_PIN H17   IOSTANDARD LVCMOS33 } [get_ports { attack
 set_property -dict { PACKAGE_PIN K1    IOSTANDARD LVCMOS33 } [get_ports { ROTATE }]; #IO_L23N_T3_35 Sch=jc[1]
 set_property -dict { PACKAGE_PIN F6    IOSTANDARD LVCMOS33 } [get_ports { DIRECTION[1] }]; #IO_L19N_T3_VREF_35 Sch=jc[2]
 set_property -dict { PACKAGE_PIN J2    IOSTANDARD LVCMOS33 } [get_ports { DIRECTION[0] }]; #IO_L22N_T3_35 Sch=jc[3]
+set_property -dict { PACKAGE_PIN G6    IOSTANDARD LVCMOS33 } [get_ports { SPEED[1] }]; #IO_L19P_T3_35 Sch=jc[4]
+set_property -dict { PACKAGE_PIN E7    IOSTANDARD LVCMOS33 } [get_ports { SPEED[0] }]; #IO_L6P_T0_35 Sch=jc[7]
 set_property -dict { PACKAGE_PIN J3    IOSTANDARD LVCMOS33 } [get_ports { sig }]; #IO_L22P_T3_35 Sch=jc[8]
 set_property -dict { PACKAGE_PIN J4    IOSTANDARD LVCMOS33 } [get_ports { pin }]; #IO_L21P_T3_DQS_35 Sch=jc[9]
 set_property -dict { PACKAGE_PIN E6    IOSTANDARD LVCMOS33 } [get_ports { PWM }]; #IO_L5P_T0_AD13P_35 Sch=jc[10]

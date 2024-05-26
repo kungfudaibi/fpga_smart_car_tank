@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "D:/code/fpga_smart_car/fpga_smart_car.runs/synth_1/top.tcl"
+  variable script "/home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,8 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 8
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -79,33 +79,34 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/code/fpga_smart_car/fpga_smart_car.cache/wt [current_project]
-set_property parent.project_path D:/code/fpga_smart_car/fpga_smart_car.xpr [current_project]
+set_property webtalk.parent_dir /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.cache/wt [current_project]
+set_property parent.project_path /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys-a7-100t:part0:1.3 [current_project]
-set_property ip_output_repo d:/code/fpga_smart_car/fpga_smart_car.cache/ip [current_project]
+set_property ip_output_repo /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/CarControl/CarControl.v
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/CarInterface.v
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/CarControl/GeneratePWM.v
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/CarControl/MotorControl.v
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/attack.v
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/cemera.v
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/ultrasound_distance_detect.v
-  D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/new/top.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/CarControl/CarControl.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/CarInterface.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/CarControl/GeneratePWM.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/CarControl/MotorControl.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/RemoteCar.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/attack.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/cemera.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/ultrasound_distance_detect.v
+  /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/new/top.v
 }
-read_ip -quiet D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all d:/code/fpga_smart_car/fpga_smart_car.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all d:/code/fpga_smart_car/fpga_smart_car.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all d:/code/fpga_smart_car/fpga_smart_car.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+read_ip -quiet /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
-read_ip -quiet D:/code/fpga_smart_car/fpga_smart_car.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
-set_property used_in_implementation false [get_files -all d:/code/fpga_smart_car/fpga_smart_car.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
+read_ip -quiet /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -116,12 +117,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/code/fpga_smart_car/fpga_smart_car.srcs/constrs_1/new/Nexysa7.xdc
-set_property used_in_implementation false [get_files D:/code/fpga_smart_car/fpga_smart_car.srcs/constrs_1/new/Nexysa7.xdc]
+read_xdc /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/constrs_1/new/Nexysa7.xdc
+set_property used_in_implementation false [get_files /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/constrs_1/new/Nexysa7.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental D:/code/fpga_smart_car/fpga_smart_car.srcs/utils_1/imports/synth_1/top.dcp
+read_checkpoint -auto_incremental -incremental /home/xu/cocode/fpga_smart_car_tank/fpga_smart_car.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
