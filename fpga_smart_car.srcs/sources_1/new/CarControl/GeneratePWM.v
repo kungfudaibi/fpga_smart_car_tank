@@ -57,7 +57,6 @@ module GeneratePWM #(
                 end
             end
         end
-    
     end
 
 endmodule
